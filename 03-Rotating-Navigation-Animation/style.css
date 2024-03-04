@@ -1,130 +1,145 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-
-*{
-    border: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
-}
-body{
-   background-color: #333333;
-   position: relative;
-   overflow-x: hidden;
+* {
+  box-sizing: border-box;
 }
 
-h1{
-    font-size: 32px;
-    font-weight: bold;
-}
-h3{
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-p{
-    line-height: 28px;
-    font-size: 14px;
-    margin-bottom: 25px;
-    
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: #333;
+  color: #222;
+  overflow-x: hidden;
+  margin: 0;
 }
 
-.container{
-    height: 100%;
-    background-color: #ffffff;
-    width: 100%;
-    padding: 10% 15%;
-    transition: all 1s; 
-    transform-origin: top left;
-    -ms-transform-origin: top left;
-    -o-transform-origin: top left;
-}
-.container.active{
-   
-    transform: rotate(-25deg);
-    transition: all 1s;
-}
-.container span{
-    font-style: italic;
-    color: #333333;
-    margin-bottom: 15px;
-    display: block;
-}
-.container img{
-    width: 100%;
-    height: auto;
-}
-.circle{
-    display: block;
-    width: 200px;
-    height: 200px;
-    background-color: #5A5B89;
-    border-radius: 100px;
-    position: fixed;
-    left: -100px;
-    top: -100px;
-    transition: all 1s;
-    z-index: 10;
-}
-.circle span svg{
-    color: white;
-    height: 36px;
-    width: 36px;
-}
-.circle span{
-    position: absolute;
-    cursor: pointer;
-}
-.circle span:nth-child(1){
-    bottom: 35px;
-    left: 35px;
-}
-.circle span:nth-child(2){
-    bottom: 30px;
-    right: 40px;
-}
-.referencia{
-    width: 10px;
-    height: 10px;
-    background-color: red;
-    position: absolute;
-    top: 120px;
-    left: 100px;
-}
-.circle.active{
-    rotate: -90deg;
-    transition: all 1s;
-}
-nav{
-    position: fixed;
-    bottom: 5%;
-    left: -100%;
-    transition: all 1s;
-}
-nav.show{
-    left: 0;
-    transition: all 1s;
+.container {
+  background-color: #fafafa;
+  transform-origin: top left;
+  transition: transform 0.5s linear;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 50px;
 }
 
-ul li{
-    list-style: none;
-    margin-bottom: 35px;
-    color: white;
-    text-transform: uppercase;
-}
-ul li svg{
-    margin-right: 10px;
-    width: 20px;
-    height: 20px;
+.container.show-nav {
+  transform: rotate(-20deg);
 }
 
-ul li:nth-child(2){
-    transform: translateX(25px);
-    transition: all 1s;
-    transition-delay: 1s;
+.circle-container {
+  position: fixed;
+  top: -100px;
+  left: -100px;
 }
-ul li:nth-child(3){
-    transform: translateX(45px);
-    transition: all 1s;
-    transition-delay: 1.5s;
+
+.circle {
+  background-color: #ff7979;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  position: relative;
+  transition: transform 0.5s linear;
+}
+
+.container.show-nav .circle {
+  transform: rotate(-70deg);
+}
+
+.circle button {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100px;
+  background: transparent;
+  border: 0;
+  font-size: 26px;
+  color: #fff;
+}
+
+.circle button:focus {
+  outline: none;
+}
+
+.circle button#open {
+  left: 60%;
+}
+
+.circle button#close {
+  top: 60%;
+  transform: rotate(90deg);
+  transform-origin: top left;
+}
+
+.container.show-nav + nav li {
+  transform: translateX(0);
+  transition-delay: 0.3s;
+}
+
+nav {
+  position: fixed;
+  bottom: 40px;
+  left: 0;
+  z-index: 100;
+}
+
+nav ul {
+  list-style-type: none;
+  padding-left: 30px;
+}
+
+nav ul li {
+  text-transform: uppercase;
+  color: #fff;
+  margin: 40px 0;
+  transform: translateX(-100%);
+  transition: transform 0.4s ease-in;
+}
+
+nav ul li i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+nav ul li + li {
+  margin-left: 15px;
+  transform: translateX(-150%);
+}
+
+nav ul li + li + li {
+  margin-left: 30px;
+  transform: translateX(-200%);
+}
+
+nav a{
+  color: #fafafa;
+  text-decoration: none;
+  transition: all 0.5s;
+}
+
+nav a:hover {
+  color: #FF7979;
+  font-weight: bold;
+}
+
+.content img {
+  max-width: 100%;
+}
+
+.content {
+  max-width: 1000px;
+  margin: 50px auto;
+}
+
+.content h1 {
+  margin: 0;
+}
+
+.content small {
+  color: #555;
+  font-style: italic;
+}
+
+.content p {
+  color: #333;
+  line-height: 1.5;
 }
